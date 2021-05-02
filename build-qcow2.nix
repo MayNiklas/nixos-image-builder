@@ -23,7 +23,6 @@ in {
     pkgs = import <nixpkgs> {
       inherit (pkgs) system;
     }; # ensure we use the regular qemu-kvm package
-    diskSize = 8192;
     format = "qcow2";
     configFile = ./nixos/machines/host/configuration.nix;
   };
