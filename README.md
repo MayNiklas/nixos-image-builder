@@ -5,5 +5,5 @@ This repository is being used for building a disk image from one of my configura
 ## Example:
 ```bash
 # building the-hub from repo mayniklas/nixos
-bash build.sh mayniklas/nixos the-hub
+bash build.sh mayniklas/nixos cloud-template
 ```
