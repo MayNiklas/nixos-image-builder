@@ -9,5 +9,5 @@ else
 
 fi
 
-sed "s/host/$2/" build-qcow2.nix > build.nix
+nix-shell -p gnused --command "sed "s/host/$2/" build-qcow2.nix > build.nix"
 GC_DONT_GC=1  nix-build '<nixpkgs/nixos>' -A config.system.build.qcow2 -I nixos-config=./build.nix

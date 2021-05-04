@@ -1,0 +1,38 @@
+---
+kind: pipeline
+type: exec
+name: build via exec
+
+platform:
+  os: linux
+  arch: amd64
+
+clone:
+  depth: 1
+
+steps:
+
+- name: building image
+  commands:
+  - bash build.sh mayniklas/nixos cloud-template
+  environment:
+     NIX_PATH: nixpkgs=channel:nixos-unstable
+
+---
+kind: pipeline
+type: docker
+name: build via docker
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+
+- name: building image
+  image: nixpkgs/nix-flakes
+  privileged: true  
+  commands:
+  - bash build.sh mayniklas/nixos cloud-template
+  environment:
+    NIX_PATH: nixpkgs=channel:nixos-unstable
