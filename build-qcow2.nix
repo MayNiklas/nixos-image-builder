@@ -12,7 +12,7 @@ in {
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
     
-    ./nixos/machines/host/configuration.nix
+    ./nixos/templates/host/configuration.nix
     ./nixos/modules
     
     (import "${home-manager}/nixos")
@@ -24,6 +24,6 @@ in {
       inherit (pkgs) system;
     }; # ensure we use the regular qemu-kvm package
     format = "qcow2";
-    configFile = ./nixos/machines/host/configuration.nix;
+    configFile = ./nixos/templates/host/configuration.nix;
   };
 }
